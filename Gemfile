@@ -13,4 +13,7 @@ end
 group :test do
   gem 'rack-test', require: 'rack/test'
   gem 'rspec'
+  gem 'factory_bot'
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+  gem 'database_cleaner'
 end
