@@ -4,7 +4,7 @@ require 'rack/test'
 require 'faker'
 # require 'pg_search'
 Dir["./spec/support/**/*.rb"].each { |f| require f }
-Dir["./app/services/**/*.rb"].each { |f| require f }
+Dir["./app/services/**/*.rb"].each { |file| require file }
 
 set :environment, :test
 
