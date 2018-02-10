@@ -34,7 +34,13 @@ describe FaqModule::CreateService do
       expect(Faq.last.answer).to eq(@answer)
     end
 
-    
+    it 'With valid params, hashtags are created' do
+      @createService = FaqModule::CreateService.new({question: @question, answer: @answer, hashtag: @hashtags})
+
+      response = @createService.call
+      expect(@hashtags.split(/[\s,]+/).first).to eq(Hashtag.first.name)
+      expect(@hashtags.split(/[\s,]+/).last).to eq(Hashtag.last.name)
+    end
 
   end
 
