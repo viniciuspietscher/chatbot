@@ -26,6 +26,16 @@ describe FaqModule::CreateService do
       expect(response).to match("Successfully created")
     end
 
+    it 'With valid params, find question and answer in database' do
+      @createService = FaqModule::CreateService.new({question: @question, answer: @answer, hashtag: @hashtags})
+
+      response = @createService.call
+      expect(Faq.last.question).to eq(@question)
+      expect(Faq.last.answer).to eq(@answer)
+    end
+
+    
+
   end
 
 end
