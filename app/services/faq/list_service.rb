@@ -1,7 +1,5 @@
 module FaqModule
-
   class ListService
-
     def initialize(params, action)
       # TODO: identify origin and set company
       @company = Company.last
@@ -23,7 +21,7 @@ module FaqModule
         faqs = @company.faqs
       end
 
-      response = "*Questions and Answers* \n\n"
+      response = "*Perguntas e Respostas* \n\n"
       faqs.each do |f|
         response += "*#{f.id}* - "
         response += "*#{f.question}*\n"
@@ -33,7 +31,7 @@ module FaqModule
         end
         response += "\n\n"
       end
-      (faqs.count > 0)? response : "Nothing found"
+      (faqs.count > 0)? response : "Nada encontrado"
     end
   end
 end
